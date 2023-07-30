@@ -7,6 +7,9 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 })
 export class CreateOrderComponent implements OnInit {
 
+  numberValue!: string;
+  wordValue!: string;
+
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit(): void {

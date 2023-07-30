@@ -8,7 +8,6 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layouts/header/header.component';
-import { FooterComponent } from './layouts/footer/footer.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AlertsComponent } from './_components/alerts/alerts.component';
@@ -53,12 +52,13 @@ import { SummaryComponent } from './components/create-order/children/summary/sum
 import { CreateMortgageAgreementComponent } from './components/create-mortgage-agreement/create-mortgage-agreement.component';
 import { SearchMortgageAgreementComponent } from './components/search-mortgage-agreement/search-mortgage-agreement.component';
 import { RedemptionComponent } from './components/redemption/redemption.component';
+import { MoneyFormatDirective } from './directive/money-format.directive';
+import { NumberToWordsPipe } from './pipes/number-to-words.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
     SidebarComponent,
     DashboardComponent,
     AlertsComponent,
@@ -102,14 +102,18 @@ import { RedemptionComponent } from './components/redemption/redemption.componen
     SummaryComponent,
     CreateMortgageAgreementComponent,
     SearchMortgageAgreementComponent,
-    RedemptionComponent
+    RedemptionComponent,
+    MoneyFormatDirective,
+    NumberToWordsPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    NumberToWordsPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -169,11 +169,11 @@
                                     class="col-sm-4 col-form-label border border-2 border-info rounded-pill">
                                     <i class="bi bi-currency-exchange"></i> Số tiền: <span class="text-danger">*</span>
                                 </label>
-                                <div class="col-sm-8"> <input type="number" class="form-control"></div>
+                                <div class="col-sm-8"> <input type="text" class="form-control" appNumberFormat (input) = "convertToWords($event)"></div>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputNumber" class="col-sm-4 col-form-label">
-                                    Bằng chữ:
+                                <label for="inputNumber" class="col-sm-12 col-form-label">
+                                    <h2 class="font-weight-bold">{{ convertedValue }}</h2>
                                 </label>
                                 <!-- <div class="col-sm-8"> <input type="number" class="form-control"></div> -->
                             </div>
