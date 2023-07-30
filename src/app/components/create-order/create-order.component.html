@@ -1,0 +1,75 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Tạo đơn hàng</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a routerLink="/create-order">Tạo đơn hàng</a></li>
+            </ol>
+        </nav>
+    </div>
+    <section class="section">
+        <!-- <div class="card" style="background-color: #CFE2FF;"> -->
+        <div class="card">
+            <div class="card-body">
+                <!-- <h5 class="card-title">Bordered Tabs Justified</h5> -->
+                <ul class="nav nav-tabs nav-tabs-bordered d-flex" id="borderedTabJustified" role="tablist">
+                    <li class="nav-item flex-fill" role="presentation"> <button class="nav-link w-100 active"
+                            id="selling-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-selling" type="button"
+                            role="tab" aria-controls="selling" aria-selected="true"><i class="bi bi-arrow-up"></i>
+                            BÁN</button></li>
+                    <li class="nav-item flex-fill" role="presentation"> <button class="nav-link w-100" id="buying-tab"
+                            data-bs-toggle="tab" data-bs-target="#bordered-justified-buying" type="button" role="tab"
+                            aria-controls="buying" aria-selected="false"><i class="bi bi-arrow-down"></i> MUA</button>
+                    </li>
+                    <li class="nav-item flex-fill" role="presentation"> <button class="nav-link w-100" id="exchange-tab"
+                            data-bs-toggle="tab" data-bs-target="#bordered-justified-exchange" type="button" role="tab"
+                            aria-controls="exchange" aria-selected="false"><i class="bi bi-arrow-down-up"></i>
+                            ĐỔI</button></li>
+                </ul>
+                <div class="tab-content pt-2" id="borderedTabJustifiedContent">
+                    <div class="tab-pane fade show active" id="bordered-justified-selling" role="tabpanel"
+                        aria-labelledby="selling-tab">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <app-summary></app-summary>
+                            </div>
+                            <div class="col-lg-9">
+                                <app-new-items></app-new-items>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="bordered-justified-buying" role="tabpanel"
+                        aria-labelledby="buying-tab">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <app-summary></app-summary>
+                            </div>
+                            <div class="col-lg-9">
+                                <app-old-items></app-old-items>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="bordered-justified-exchange" role="tabpanel"
+                        aria-labelledby="exchange-tab">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <app-summary></app-summary>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <app-new-items></app-new-items>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <app-old-items></app-old-items>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

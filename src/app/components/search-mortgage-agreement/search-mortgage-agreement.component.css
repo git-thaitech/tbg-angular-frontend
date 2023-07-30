@@ -1,0 +1,13 @@
+/* table tr {
+    cursor: pointer !important;
+} */
+
+table tbody tr:hover {
+    cursor: pointer;
+    background-color: #eaeaea;
+}
+
+/* table {
+    table-layout: fixed;
+    width: 1000px;
+} */
