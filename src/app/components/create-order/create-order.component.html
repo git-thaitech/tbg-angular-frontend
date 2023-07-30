@@ -8,65 +8,193 @@
             </ol>
         </nav>
     </div>
-    <section class="section">
-        <!-- <div class="card" style="background-color: #CFE2FF;"> -->
-        <div class="card">
-            <div class="card-body">
-                <!-- <h5 class="card-title">Bordered Tabs Justified</h5> -->
-                <ul class="nav nav-tabs nav-tabs-bordered d-flex" id="borderedTabJustified" role="tablist">
-                    <li class="nav-item flex-fill" role="presentation"> <button class="nav-link w-100 active"
-                            id="selling-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-selling" type="button"
-                            role="tab" aria-controls="selling" aria-selected="true"><i class="bi bi-arrow-up"></i>
-                            BÁN</button></li>
-                    <li class="nav-item flex-fill" role="presentation"> <button class="nav-link w-100" id="buying-tab"
-                            data-bs-toggle="tab" data-bs-target="#bordered-justified-buying" type="button" role="tab"
-                            aria-controls="buying" aria-selected="false"><i class="bi bi-arrow-down"></i> MUA</button>
-                    </li>
-                    <li class="nav-item flex-fill" role="presentation"> <button class="nav-link w-100" id="exchange-tab"
-                            data-bs-toggle="tab" data-bs-target="#bordered-justified-exchange" type="button" role="tab"
-                            aria-controls="exchange" aria-selected="false"><i class="bi bi-arrow-down-up"></i>
-                            ĐỔI</button></li>
-                </ul>
-                <div class="tab-content pt-2" id="borderedTabJustifiedContent">
-                    <div class="tab-pane fade show active" id="bordered-justified-selling" role="tabpanel"
-                        aria-labelledby="selling-tab">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <app-summary></app-summary>
-                            </div>
-                            <div class="col-lg-9">
-                                <app-new-items></app-new-items>
-                            </div>
-                        </div>
+    <section class="section profile">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body pt-1">
+                        <p class="badge bg-danger" style="font-size: 1rem; margin-top: 0.7rem;;">Tổng kết</p>
                     </div>
-                    <div class="tab-pane fade" id="bordered-justified-buying" role="tabpanel"
-                        aria-labelledby="buying-tab">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <app-summary></app-summary>
+                </div>
+            </div>
+            <div class="col-xl-7">
+                <div class="card">
+                    <div class="card-body pt-1">
+                        <p class="badge bg-warning" style="font-size: 0.7rem; margin-top: 0.7rem;;">ĐỒ
+                            MỚI</p>
+                        <form>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Mã QR:</label>
+                                <div class="col-sm-10"> <input type="text" class="form-control"></div>
                             </div>
-                            <div class="col-lg-9">
-                                <app-old-items></app-old-items>
-                            </div>
-                        </div>
+                        </form>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">STT</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Mâm</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Position</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Start Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <th><a href="#">#2644</a></th>
+                                    <td><span class="badge bg-success">Approved</span></td>
+                                    <td>Brandon Jacob</td>
+                                    <td>Designer</td>
+                                    <td>28</td>
+                                    <td>2016-05-25</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <th><a href="#">#2644</a></th>
+                                    <td><span class="badge bg-success">Approved</span></td>
+                                    <td>Bridie Kessler</td>
+                                    <td>Developer</td>
+                                    <td>35</td>
+                                    <td>2014-12-05</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <th><a href="#">#2644</a></th>
+                                    <td><span class="badge bg-success">Approved</span></td>
+                                    <td>Ashleigh Langosh</td>
+                                    <td>Finance</td>
+                                    <td>45</td>
+                                    <td>2011-08-12</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <th><a href="#">#2644</a></th>
+                                    <td><span class="badge bg-success">Approved</span></td>
+                                    <td>Angus Grady</td>
+                                    <td>HR</td>
+                                    <td>34</td>
+                                    <td>2012-06-11</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <th><a href="#">#2644</a></th>
+                                    <td><span class="badge bg-success">Approved</span></td>
+                                    <td>Raheem Lehner</td>
+                                    <td>Dynamic Division Officer</td>
+                                    <td>47</td>
+                                    <td>2011-04-19</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="tab-pane fade" id="bordered-justified-exchange" role="tabpanel"
-                        aria-labelledby="exchange-tab">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <app-summary></app-summary>
-                            </div>
-                            <div class="col-lg-9">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <app-new-items></app-new-items>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <app-old-items></app-old-items>
+                </div>
+            </div>
+            <div class="col-xl-5">
+                <div class="card overflow-auto">
+                    <div class="card-body pt-1">
+                        <p class="badge bg-secondary" style="font-size: 0.7rem; margin-top: 0.7rem;">ĐỒ
+                            CŨ</p>
+                        <form>
+                            <div class="row mb-3">
+                                <div class="col-lg-5 mb-1 row">
+                                    <!-- <div> -->
+                                    <label for="inputText" class="col-sm-5 col-form-label"
+                                        style="padding-right: 0;">Loại:
+                                        <span class="text-danger">*</span></label>
+                                    <!-- </div> -->
+                                    <div class="col-sm-7" style="padding: 0 0rem 0 0;">
+                                        <select name="cars" id="cars" class="form-select">
+                                            <option selected disabled>--</option>
+                                            <optgroup label="Vàng 18k">
+                                                <option value="volvo">610</option>
+                                                <option value="saab">600</option>
+                                                <option value="saab">590</option>
+                                                <option value="saab">lạ</option>
+                                            </optgroup>
+                                            <optgroup label="Vàng 24k">
+                                                <option value="mercedes">999</option>
+                                                <option value="audi">990</option>
+                                                <option value="audi">980</option>
+                                            </optgroup>
+                                        </select>
                                     </div>
                                 </div>
+                                <div class="col-lg-7 mb-1 row">
+                                    <label for="inputText" class="col-sm-5 col-form-label">Giá:
+                                        <span class="text-danger">*</span></label>
+                                    <div class="col-sm-7"> <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-1 row">
+                                    <label for="inputText" class="col-sm-5 col-form-label" style="padding-right: 0;">KLT:
+                                        <span class="text-danger">*</span></label>
+                                    <div class="col-sm-7"> <input type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-1 row">
+                                    <label for="inputText" class="col-sm-4 col-form-label" style="padding-right: 0;">H:
+                                        <span class="text-danger">*</span></label>
+                                    <div class="col-sm-8" style="padding-left: 0;"> <input type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-lg-10 mb-1 row">
+                                    <label for="inputText" class="col-sm-3 col-form-label"
+                                        style="padding-right: 0;">Tên:</label>
+                                    <div class="col-sm-9" style="padding-left: 0;"> <input type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-lg-2" style="padding-left: 3rem;">
+                                    <button type="submit" class="btn btn-primary">+</button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">STT</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Mâm</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Position</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Start Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <th><a href="#">#2644</a></th>
+                                    <td><span class="badge bg-success">Approved</span></td>
+                                    <td>Brandon Jacob</td>
+                                    <td>Designer</td>
+                                    <td>28</td>
+                                    <td>2016-05-25</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <th><a href="#">#2644</a></th>
+                                    <td><span class="badge bg-success">Approved</span></td>
+                                    <td>Bridie Kessler</td>
+                                    <td>Developer</td>
+                                    <td>35</td>
+                                    <td>2014-12-05</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <th><a href="#">#2644</a></th>
+                                    <td><span class="badge bg-success">Approved</span></td>
+                                    <td>Ashleigh Langosh</td>
+                                    <td>Finance</td>
+                                    <td>45</td>
+                                    <td>2011-08-12</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
