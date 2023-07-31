@@ -9,7 +9,10 @@ import { NumberToWordsPipe } from 'src/app/pipes/number-to-words.pipe';
 export class CreateMortgageAgreementComponent implements OnInit {
   
   number!: number;
-  convertedValue!: string;
+  convertedMoneyString!: string;
+  convertedGoldWeightUnit!: string;
+  showExtendedCustomerInfo = false;
+  customerName!: string;
 
   constructor(private numberToWordsPipe: NumberToWordsPipe) { }
 
@@ -19,8 +22,8 @@ export class CreateMortgageAgreementComponent implements OnInit {
   convertToWords(event: any): void {
     const value = event.target.value;
     const number = parseFloat(value.replace(/[^0-9]/g, ''));
-    this.convertedValue = this.numberToWordsPipe.transform(number);
-    console.log(this.convertedValue);
+    this.convertedMoneyString = this.numberToWordsPipe.transform(number);
+    console.log(this.convertedMoneyString);
   }
 
 
