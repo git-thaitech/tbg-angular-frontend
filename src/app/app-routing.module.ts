@@ -40,13 +40,13 @@ import { RedemptionComponent } from './components/redemption/redemption.componen
 import { SearchMortgageAgreementComponent } from './components/search-mortgage-agreement/search-mortgage-agreement.component';
 
 const routes: Routes = [
-  { path: '', component: PriceComponent },
+  { path: '', title: "Trang chủ - Giá vàng", component: PriceComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'create-order', component: CreateOrderComponent },
-  { path: 'search-order', component: SearchOrderComponent },
-  { path: 'create-mortgage-agreement', component: CreateMortgageAgreementComponent},
-  { path: 'redemption', component: RedemptionComponent},
-  { path: 'search-mortgage-agreement', component: SearchMortgageAgreementComponent},
+  { path: 'create-order', title: "Tạo đơn hàng", component: CreateOrderComponent },
+  { path: 'search-order', title: "Tìm kiếm đơn hàng", component: SearchOrderComponent },
+  { path: 'create-mortgage-agreement', title: "Tạo đơn cầm", component: CreateMortgageAgreementComponent},
+  { path: 'redemption', title: "Chuộc - đóng lãi", component: RedemptionComponent},
+  { path: 'search-mortgage-agreement', title: "Tìm kiếm đơn cầm", component: SearchMortgageAgreementComponent},
   { path: 'alerts', component: AlertsComponent },
   { path: 'accordion', component: AccordionComponent },
   { path: 'badges', component: BadgesComponent },

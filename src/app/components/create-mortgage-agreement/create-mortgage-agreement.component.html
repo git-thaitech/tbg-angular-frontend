@@ -77,10 +77,10 @@
                         <form>
                             <div class="row">
                                 <div class="col-lg-7 mb-3 row">
-                                    <label for="inputText" class="col-sm-3 col-form-label">Tên: <span
+                                    <label for="item-name" class="col-sm-3 col-form-label">Tên: <span
                                             class="text-danger">*</span></label>
-                                    <div class="col-sm-9 ps-1 pe-3" style="padding-left: 0;"> <input [(ngModel)]="itemName" type="text"
-                                            class="form-control">
+                                    <div class="col-sm-9 ps-1 pe-3" style="padding-left: 0;"> 
+                                        <input name="item-name" type="text" class="form-control" [(ngModel)]="itemName">
                                     </div>
                                 </div>
                                 <div class="col-lg-5 mb-3 row">
@@ -89,7 +89,7 @@
                                         <span class="text-danger">*</span></label>
                                     <!-- </div> -->
                                     <div class="col-sm-8">
-                                        <select name="gold-type" id="gold-type" class="form-select">
+                                        <select name="gold-type" id="gold-type" class="form-select" [(ngModel)]="goldType">
                                             <option>--</option>
                                             <optgroup label="Vàng 18k">
                                                 <option value="610">610</option>
@@ -107,9 +107,10 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-5 mb-3 row">
-                                    <label for="inputText" class="col-sm-4 col-form-label">TL:
+                                    <label for="item-real-weight" class="col-sm-4 col-form-label">TL:
                                         <span class="text-danger">*</span></label>
-                                    <div class="col-sm-8"> <input type="text" class="form-control">
+                                    <div class="col-sm-8"> 
+                                        <input name="item-real-weight" type="text" class="form-control" [(ngModel)]="itemRealWeight">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mb-3 row">
@@ -133,10 +134,10 @@
                             <tbody>
                                 <tr *ngFor="let row of itemRows; let i = index">
                                     <td>{{ i + 1 }}</td>
-                                    <td>{{ row.itemName }}</td>
-                                    <td>{{ row.goldType }}</td>
-                                    <td>{{ row.itemRealWeight }}</td>
-                                    <td><button (click)="removeRow(row)">Xóa</button></td>
+                                    <td>{{ row.itemNameRow }}</td>
+                                    <td>{{ row.goldTypeRow }}</td>
+                                    <td>{{ row.itemRealWeightRow }}</td>
+                                    <td><button (click)="removeRow(row)" class=""btn btn-outline-dark>Xóa <i class="bi bi-trash-fill"></i></button></td>
                                   </tr>
                             </tbody>
                         </table>
