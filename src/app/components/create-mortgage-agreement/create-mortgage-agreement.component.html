@@ -79,7 +79,7 @@
                                 <div class="col-lg-7 mb-3 row">
                                     <label for="inputText" class="col-sm-3 col-form-label">Tên: <span
                                             class="text-danger">*</span></label>
-                                    <div class="col-sm-9 ps-1 pe-3" style="padding-left: 0;"> <input type="text"
+                                    <div class="col-sm-9 ps-1 pe-3" style="padding-left: 0;"> <input [(ngModel)]="itemName" type="text"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -116,7 +116,7 @@
                                     <h2 class="font-weight-bold">{{ convertedGoldWeightUnit }}</h2>
                                 </div>
                                 <div class="col-lg-1 mb-3">
-                                    <button type="submit" class="btn btn-primary">+</button>
+                                    <button class="btn btn-primary" (click)="addItemRow()">+</button>
                                 </div>
                             </div>
                         </form>
@@ -127,27 +127,17 @@
                                     <th scope="col">Tên</th>
                                     <th scope="col">Loại vàng</th>
                                     <th scope="col">Trọng lượng</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <th><a href="#">#2644</a></th>
-                                    <td><span class="badge bg-success">Approved</span></td>
-                                    <td>Brandon Jacob</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <th><a href="#">#2644</a></th>
-                                    <td><span class="badge bg-success">Approved</span></td>
-                                    <td>Bridie Kessler</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <th><a href="#">#2644</a></th>
-                                    <td><span class="badge bg-success">Approved</span></td>
-                                    <td>Ashleigh Langosh</td>
-                                </tr>
+                                <tr *ngFor="let row of itemRows; let i = index">
+                                    <td>{{ i + 1 }}</td>
+                                    <td>{{ row.itemName }}</td>
+                                    <td>{{ row.goldType }}</td>
+                                    <td>{{ row.itemRealWeight }}</td>
+                                    <td><button (click)="removeRow(row)">Xóa</button></td>
+                                  </tr>
                             </tbody>
                         </table>
                     </div>
