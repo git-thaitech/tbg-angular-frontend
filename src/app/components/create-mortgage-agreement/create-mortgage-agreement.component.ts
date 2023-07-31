@@ -13,7 +13,7 @@ export class CreateMortgageAgreementComponent implements OnInit {
   convertedGoldWeightUnit!: string;
   showExtendedCustomerInfo = false;
   customerName!: string;
-  
+
 
   constructor(private numberToWordsPipe: NumberToWordsPipe) { }
 
@@ -35,12 +35,20 @@ export class CreateMortgageAgreementComponent implements OnInit {
   async addItemRow() {
     console.log("haha");
     console.log(this.itemName);
-    const row = {
-      itemNameRow: this.itemName,
-      goldTypeRow: this.goldType,
-      itemRealWeightRow: this.itemRealWeight
-    };
-    this.itemRows.push(row);
+
+    const addRowPromise = new Promise((resolve, reject) => {
+      const row = {
+        itemNameRow: this.itemName,
+        goldTypeRow: this.goldType,
+        itemRealWeightRow: this.itemRealWeight
+      };
+      resolve(row);
+    });
+
+    await addRowPromise.then((row: any) => {
+      this.itemRows.push(row);
+    });
+
     this.itemName = '';
     this.goldType = '';
     this.itemRealWeight = '';
