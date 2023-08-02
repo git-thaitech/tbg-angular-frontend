@@ -15,7 +15,7 @@ export class NumberToWordsPipe implements PipeTransform {
     }
 
     if (value === 0) {
-      return 'không đồng.';
+      return 'Không đồng.';
     }
 
     let result = '';
@@ -40,7 +40,7 @@ export class NumberToWordsPipe implements PipeTransform {
       }
 
       if (tensAndUnits > 0) {
-        if (tensAndUnits < 10 && hundreds > 0) {
+        if ((tensAndUnits < 10 && hundreds > 0) || (tensAndUnits < 10 && hundreds == 0 && value > 0)) {
           groupString += 'lẻ ' + units[tensAndUnits];
         } else if (tensAndUnits < 10 && hundreds <= 0) {
           groupString += units[tensAndUnits];

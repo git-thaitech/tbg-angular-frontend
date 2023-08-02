@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  isChildActive() {
+    return this.router.url.split('/').some(segment => segment.startsWith('create-mortgage-agreement') || segment.startsWith('redemption') || segment.startsWith('search-mortgage-agreement'));
   }
 
 }

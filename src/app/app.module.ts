@@ -54,6 +54,8 @@ import { SearchMortgageAgreementComponent } from './components/search-mortgage-a
 import { RedemptionComponent } from './components/redemption/redemption.component';
 import { MoneyFormatDirective } from './directive/money-format.directive';
 import { NumberToWordsPipe } from './pipes/number-to-words.pipe';
+import { GoldWeightFormatDirective } from './directive/gold-weight-format.directive';
+import { NumberToGoldWeightUnitPipe } from './pipes/number-to-gold-weight-unit.pipe';
 
 @NgModule({
   declarations: [
@@ -104,7 +106,8 @@ import { NumberToWordsPipe } from './pipes/number-to-words.pipe';
     SearchMortgageAgreementComponent,
     RedemptionComponent,
     MoneyFormatDirective,
-    NumberToWordsPipe
+    NumberToWordsPipe,
+    GoldWeightFormatDirective
   ],
   imports: [
     BrowserModule,
@@ -112,7 +115,8 @@ import { NumberToWordsPipe } from './pipes/number-to-words.pipe';
     FormsModule
   ],
   providers: [
-    NumberToWordsPipe
+    NumberToWordsPipe,
+    NumberToGoldWeightUnitPipe
   ],
   bootstrap: [AppComponent]
 })

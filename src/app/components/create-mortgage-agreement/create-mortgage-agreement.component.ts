@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NumberToWordsPipe } from 'src/app/pipes/number-to-words.pipe';
+import { NumberToGoldWeightUnitPipe } from 'src/app/pipes/number-to-gold-weight-unit.pipe';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-create-mortgage-agreement',
@@ -10,48 +13,73 @@ export class CreateMortgageAgreementComponent implements OnInit {
 
   number!: number;
   convertedMoneyString!: string;
-  convertedGoldWeightUnit!: string;
+  convertedMoneyNumber!: string;
+  convertedGoldWeightUnitString!: string;
   showExtendedCustomerInfo = false;
   customerName!: string;
 
 
-  constructor(private numberToWordsPipe: NumberToWordsPipe) { }
+  constructor(private numberToWordsPipe: NumberToWordsPipe, private numberToGoldWeightUnitPipe: NumberToGoldWeightUnitPipe) { }
 
   ngOnInit(): void {
   }
 
   convertToWords(event: any): void {
     const value = event.target.value;
+    this.convertedMoneyNumber = event.target.value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');;
     const number = parseFloat(value.replace(/[^0-9]/g, ''));
-    this.convertedMoneyString = this.numberToWordsPipe.transform(number);
-    console.log(this.convertedMoneyString);
+    const result = this.numberToWordsPipe.transform(number);
+    console.log(result + result.length);
+    this.convertedMoneyString = (result.length > 6) ? result : "";
   }
 
-  itemName!: string;
-  goldType!: string;
-  itemRealWeight!: any;
+  convertToWeightUnit(event: any): void {
+    const value = event.target.value;
+    this.convertedGoldWeightUnitString = this.numberToGoldWeightUnitPipe.transform(value);
+  }
+
+  itemName = '';
+  goldType = '';
+  itemRealWeight = '';
   itemRows: { itemNameRow: string, goldTypeRow: string, itemRealWeightRow: any }[] = [];
+  emptyItemInputError = '';
+  // @ViewChild('itemForm') itemForm!: NgForm;
 
-  async addItemRow() {
-    console.log("haha");
-    console.log(this.itemName);
+  onSubmitItemForm(form: NgForm) {
+    const { 'item-name': itemName, 'gold-type': goldType, 'item-real-weight': itemRealWeight } = form.value;
+    let row = {
+      itemNameRow: itemName,
+      goldTypeRow: goldType,
+      itemRealWeightRow: itemRealWeight
+    };
+    this.itemRows.push(row);
+    this.convertedGoldWeightUnitString = '';
+    form.resetForm();
+    console.log(form);
+  }
 
-    const addRowPromise = new Promise((resolve, reject) => {
+  addItemToRows() {
+    this.emptyItemInputError = '';
+    console.log(this.itemName + '-' + this.itemName.length);
+    console.log(this.goldType + '-' + this.goldType.length);
+    console.log(this.itemRealWeight);
+    if (this.itemName === '' || this.goldType === '' || this.itemRealWeight === '') {
+      this.emptyItemInputError = "Không được bỏ trống các trường thông tin!";
+      return;
+    } else {
       const row = {
         itemNameRow: this.itemName,
         goldTypeRow: this.goldType,
         itemRealWeightRow: this.itemRealWeight
       };
-      resolve(row);
-    });
 
-    await addRowPromise.then((row: any) => {
       this.itemRows.push(row);
-    });
 
-    this.itemName = '';
-    this.goldType = '';
-    this.itemRealWeight = '';
+      this.convertedGoldWeightUnitString = '';
+      this.itemName = '';
+      this.goldType = '';
+      this.itemRealWeight = '';
+    }
   }
 
   removeRow(row: any) {
@@ -61,5 +89,8 @@ export class CreateMortgageAgreementComponent implements OnInit {
     }
   }
 
+  reload() {
+    window.location.reload();
+  }
 
 }
