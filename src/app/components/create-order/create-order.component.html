@@ -10,13 +10,6 @@
     </div>
     <section class="section profile">
         <div class="row">
-            <div class="col-xl-12">
-                <div class="card">
-                    <div class="card-body pt-1">
-                        <p class="badge bg-danger" style="font-size: 1rem; margin-top: 0.7rem;;">Tổng kết</p>
-                    </div>
-                </div>
-            </div>
             <div class="col-xl-7">
                 <div class="card">
                     <div class="card-body pt-1">
@@ -98,57 +91,64 @@
                             CŨ</p>
                         <form>
                             <div class="row mb-3">
-                                <div class="col-lg-5 mb-1 row">
+                                <div class="col-lg-7 mb-3 row">
                                     <!-- <div> -->
-                                    <label for="inputText" class="col-sm-5 col-form-label"
-                                        style="padding-right: 0;">Loại:
-                                        <span class="text-danger">*</span></label>
+                                    <label for="inputText" class="col-sm-3 col-form-label">Loại:</label>
                                     <!-- </div> -->
-                                    <div class="col-sm-7" style="padding: 0 0rem 0 0;">
+                                    <div class="col-sm-7 px-0">
                                         <select name="cars" id="cars" class="form-select">
                                             <option selected disabled>--</option>
                                             <optgroup label="Vàng 18k">
-                                                <option value="volvo">610</option>
-                                                <option value="saab">600</option>
-                                                <option value="saab">590</option>
-                                                <option value="saab">lạ</option>
+                                                <option value="610">610</option>
+                                                <option value="600">600</option>
+                                                <option value="590">590</option>
+                                                <option value="18k lạ">18k lạ</option>
                                             </optgroup>
                                             <optgroup label="Vàng 24k">
-                                                <option value="mercedes">999</option>
-                                                <option value="audi">990</option>
-                                                <option value="audi">980</option>
+                                                <option value="999">999</option>
+                                                <option value="990">990</option>
+                                                <option value="980">980</option>
+                                                <option value="24k lạ">24k lạ</option>
                                             </optgroup>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-7 mb-1 row">
-                                    <label for="inputText" class="col-sm-5 col-form-label">Giá:
-                                        <span class="text-danger">*</span></label>
-                                    <div class="col-sm-7"> <input type="text" class="form-control">
+                                <div class="col-lg-5 mb-3 row">
+                                    <label for="inputText" class="col-sm-4 col-form-label">KLT:</label>
+                                    <div class="col-sm-8 ps-0">
+                                        <input type="text" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-lg-6 mb-1 row">
-                                    <label for="inputText" class="col-sm-5 col-form-label" style="padding-right: 0;">KLT:
-                                        <span class="text-danger">*</span></label>
-                                    <div class="col-sm-7"> <input type="text"
-                                            class="form-control">
+                                <div class="col-lg-7 mb-3 row">
+                                    <label for="gia-mua" class="col-sm-3 col-form-label" *ngIf="!isExchangeItem">Mua:
+                                    </label>
+                                    <label for="gia-doi" class="col-sm-3 col-form-label" *ngIf="isExchangeItem">Đổi:
+                                    </label>
+                                    <div class="col-sm-7 px-0">
+                                        <input *ngIf="!isExchangeItem" type="text" class="form-control">
+                                        <select *ngIf="isExchangeItem" class="form-select">
+                                            <option value="option1">0 <span class="buy-price-for-exchange">(m.600)</span></option>
+                                            <option value="option1">0 <span class="buy-price-for-exchange">(m.600)</span></option>
+                                            <option value="option1">120 <span class="buy-price-for-exchange">(m.600)</span></option>
+                                            <option value="option1">120 <span class="buy-price-for-exchange">(m.600)</span></option>
+                                            <option value="option1">120 <span class="buy-price-for-exchange">(m.600)</span></option>
+                                            <option value="option1">120 <span class="buy-price-for-exchange">(m.600)</span></option>
+                                            <option value="option1">120 <span class="buy-price-for-exchange">(m.600)</span></option>
+                                            <option value="option1">120 <span class="buy-price-for-exchange">(m.600)</span></option>
+                                            <option value="option1">120 <span class="buy-price-for-exchange">(m.600)</span></option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2 ps-0">
+                                        <button class="btn btn-secondary change-old-item-function" (click)="changeOldItemFunction()"><i class="ri-exchange-funds-fill"></i></button>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 mb-1 row">
-                                    <label for="inputText" class="col-sm-4 col-form-label" style="padding-right: 0;">H:
-                                        <span class="text-danger">*</span></label>
-                                    <div class="col-sm-8" style="padding-left: 0;"> <input type="text"
-                                            class="form-control">
+                                <div class="col-lg-4 mb-3 row">
+                                    <label for="inputText" class="col-sm-4 col-form-label" style="padding-right: 0;">H:</label>
+                                    <div class="col-sm-8"> 
+                                        <input type="text" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-lg-10 mb-1 row">
-                                    <label for="inputText" class="col-sm-3 col-form-label"
-                                        style="padding-right: 0;">Tên:</label>
-                                    <div class="col-sm-9" style="padding-left: 0;"> <input type="text"
-                                            class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-lg-2" style="padding-left: 3rem;">
+                                <div class="col-lg-2 ps-5">
                                     <button type="submit" class="btn btn-primary">+</button>
                                 </div>
                             </div>
@@ -156,45 +156,41 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col">STT</th>
-                                    <th scope="col">Code</th>
-                                    <th scope="col">Mâm</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Position</th>
-                                    <th scope="col">Age</th>
-                                    <th scope="col">Start Date</th>
+                                    <th scope="col">Loại</th>
+                                    <th width="40%" scope="col">KLV-H=TLV</th>
+                                    <th scope="col"><i class="ri-exchange-funds-fill"></i> Mua/Đổi</th>
+                                    <th scope="col">Xóa</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th scope="row">1</th>
                                     <th><a href="#">#2644</a></th>
-                                    <td><span class="badge bg-success">Approved</span></td>
-                                    <td>Brandon Jacob</td>
-                                    <td>Designer</td>
-                                    <td>28</td>
-                                    <td>2016-05-25</td>
+                                    <td>322.3 - 3 = <strong>213</strong></td>
+                                    <td><span class="badge bg-success">ĐỔI</span> 120 (m.600)</td>
+                                    <td><button class="btn btn-outline-dark"><i
+                                        class="bi bi-trash-fill"></i></button></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">2</th>
                                     <th><a href="#">#2644</a></th>
                                     <td><span class="badge bg-success">Approved</span></td>
-                                    <td>Bridie Kessler</td>
-                                    <td>Developer</td>
+                                    <td><span class="badge bg-warning">MUA</span> 35000</td>
                                     <td>35</td>
-                                    <td>2014-12-05</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">3</th>
                                     <th><a href="#">#2644</a></th>
                                     <td><span class="badge bg-success">Approved</span></td>
                                     <td>Ashleigh Langosh</td>
-                                    <td>Finance</td>
                                     <td>45</td>
-                                    <td>2011-08-12</td>
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body pt-1">
+                        <p class="badge bg-info" style="font-size: 1rem; margin-top: 0.7rem;;">Tổng tiền</p>
                     </div>
                 </div>
             </div>
