@@ -96,7 +96,7 @@
                                     <label for="inputText" class="col-sm-3 col-form-label">Loại:</label>
                                     <!-- </div> -->
                                     <div class="col-sm-7 px-0">
-                                        <select name="cars" id="cars" class="form-select">
+                                        <select name="old-item-gold-type" id="old-item-gold-type" class="form-select" [(ngModel)]="oldItemGoldType">
                                             <option selected disabled>--</option>
                                             <optgroup label="Vàng 18k">
                                                 <option value="610">610</option>
@@ -116,7 +116,7 @@
                                 <div class="col-lg-5 mb-3 row">
                                     <label for="inputText" class="col-sm-4 col-form-label">KLT:</label>
                                     <div class="col-sm-8 ps-0">
-                                        <input type="text" class="form-control" appGoldWeightFormat>
+                                        <input type="text" class="form-control" appGoldWeightFormat [(ngModel)]="oldItemTotalWeight">
                                     </div>
                                 </div>
                                 <div class="col-lg-7 mb-3 row">
@@ -125,8 +125,8 @@
                                     <label for="gia-doi" class="col-sm-3 col-form-label" *ngIf="isOldItemExchange">Đổi:
                                     </label>
                                     <div class="col-sm-7 px-0">
-                                        <input *ngIf="!isOldItemExchange" type="text" class="form-control" appNumberOnlyFormat>
-                                        <select *ngIf="isOldItemExchange" class="form-select">
+                                        <input *ngIf="!isOldItemExchange" type="text" class="form-control" appNumberOnlyFormat [(ngModel)]="oldItemBuyPrice">
+                                        <select *ngIf="isOldItemExchange" class="form-select" [(ngModel)]="oldItemExchangePrice">
                                             <option value="option1">0 <span class="buy-price-for-exchange">(m.600)</span></option>
                                             <option value="option1">0 <span class="buy-price-for-exchange">(m.600)</span></option>
                                             <option value="option1">120 <span class="buy-price-for-exchange">(m.600)</span></option>
@@ -145,7 +145,7 @@
                                 <div class="col-lg-4 mb-3 row">
                                     <label for="inputText" class="col-sm-4 col-form-label" style="padding-right: 0;">H:</label>
                                     <div class="col-sm-8"> 
-                                        <input type="text" class="form-control" appGoldWeightFormat>
+                                        <input type="text" class="form-control" appGoldWeightFormat [(ngModel)]="oldItemGemWeight">
                                     </div>
                                 </div>
                                 <div class="col-lg-2 ps-5">
