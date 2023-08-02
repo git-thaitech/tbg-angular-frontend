@@ -23,7 +23,7 @@
     </div>
     <section class="section profile">
         <div class="row">
-            <div class="col-xl-5">
+            <div class="col-xl-4">
                 <div class="card">
                     <div class="card-body pt-3">
                         <p class="badge bg-secondary" style="font-size: 0.7rem; margin-top: 0.7rem;">KHÁCH HÀNG</p>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-7">
+            <div class="col-xl-8">
                 <div class="card">
                     <div class="card-body pt-3">
                         <p class="badge bg-secondary" style="font-size: 0.7rem; margin-top: 0.7rem;">
@@ -134,16 +134,20 @@
                         <form>
                             <div class="row">
                                 <div class="col-lg-7 mb-3 row">
-                                    <label for="item-name" class="col-sm-3 col-form-label">Tên: <span class="text-danger">*</span></label>
+                                    <label for="item-name" class="col-sm-3 col-form-label">Tên: <span
+                                            class="text-danger">*</span></label>
                                     <div class="col-sm-9 ps-1 pe-3">
-                                        <input name="item-name" type="text" class="form-control" [(ngModel)]="itemName" [ngClass]="{'is-invalid': ( itemName === '' && emptyItemInputError !== '' )}">
+                                        <input name="item-name" type="text" class="form-control" [(ngModel)]="itemName"
+                                            [ngClass]="{'is-invalid': ( itemName === '' && emptyItemInputError !== '' )}">
                                     </div>
                                 </div>
                                 <div class="col-lg-5 mb-3 row">
                                     <label for="inputText" class="col-sm-4 col-form-label">Loại:
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-8">
-                                        <select name="gold-type" id="gold-type" class="form-select" [(ngModel)]="goldType" [ngClass]="{'is-invalid': ( goldType === '' && emptyItemInputError !== '' )}">
+                                        <select name="gold-type" id="gold-type" class="form-select"
+                                            [(ngModel)]="goldType"
+                                            [ngClass]="{'is-invalid': ( goldType === '' && emptyItemInputError !== '' )}">
                                             <option selected disabled></option>
                                             <optgroup label="Vàng 18k">
                                                 <option value="610">610</option>
@@ -162,11 +166,14 @@
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-8">
                                         <input type="text" id="item-real-weight" name="item-real-weight"
-                                            class="form-control" (input)="convertToWeightUnit($event)" [(ngModel)]="itemRealWeight" appGoldWeightFormat [ngClass]="{'is-invalid': ( itemRealWeight === '' && emptyItemInputError !== '' )}">
+                                            class="form-control" (input)="convertToWeightUnit($event)"
+                                            [(ngModel)]="itemRealWeight" appGoldWeightFormat
+                                            [ngClass]="{'is-invalid': ( itemRealWeight === '' && emptyItemInputError !== '' )}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mb-3 row">
-                                    <h2 class="bold-letters bg-light bg-gradient">{{ convertedGoldWeightUnitString }}</h2>
+                                    <h2 class="bold-letters bg-light bg-gradient">{{ convertedGoldWeightUnitString }}
+                                    </h2>
                                 </div>
                                 <div class="col-lg-1 mb-3">
                                     <button class="btn btn-primary" (click)="addItemToRows()">+</button>
@@ -196,26 +203,52 @@
                         </table>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-body pt-3">
-                        <form>
-                            <div class="row mb-3">
-                                <label for="inputNumber" class="col-sm-2 px-0 col-form-label">
-                                    <i class="bi bi-currency-exchange"></i> Số tiền: <span class="text-danger">*</span>
-                                </label>
-                                <div class="col-sm-6"> <input type="text" class="form-control" appMoneyFormat
-                                        (input)="convertToWords($event)"></div>
-                                <div class="col-sm-4 d-flex justify-content-end">
-                                    <button type="button" class="btn btn-primary">TẠO ĐƠN CẦM</button>
-                                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body pt-3">
+                                <form>
+                                    <div class="row mb-3">
+                                        <label for="interest-rate" class="col-sm-5 px-0 col-form-label"> Lãi suất: <span
+                                                class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-sm-7">
+                                            <select name="interest-rate" id="interest-rate" class="form-select"
+                                                [(ngModel)]="interestRate">
+                                                <option value="1">Nhóm 1</option>
+                                                <option value="2">Nhóm 2</option>
+                                                <option value="3">Nhóm 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="row mb-3">
-                                <h1 class="font-weight-bold">{{ convertedMoneyNumber }}</h1>
-                                <p class="font-weight-bold" style="background-color:bisque">{{
-                                    convertedMoneyString }}</p>
-                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-body pt-3">
+                                <form>
+                                    <div class="row mb-3">
+                                        <label for="inputNumber" class="col-sm-3 px-0 col-form-label">
+                                            <i class="bi bi-currency-exchange"></i> Số tiền: <span
+                                                class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-sm-5"> <input type="text" class="form-control" appMoneyFormat
+                                                (input)="convertToWords($event)"></div>
+                                        <div class="col-sm-4 d-flex justify-content-end">
+                                            <button type="button" class="btn btn-primary">TẠO ĐƠN CẦM</button>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <h1 class="font-weight-bold">{{ convertedMoneyNumber }}</h1>
+                                        <p class="font-weight-bold" style="background-color:bisque">{{
+                                            convertedMoneyString }}</p>
+                                    </div>
 
-                        </form>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

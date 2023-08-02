@@ -38,15 +38,21 @@ import { SearchOrderComponent } from './components/search-order/search-order.com
 import { CreateMortgageAgreementComponent } from './components/create-mortgage-agreement/create-mortgage-agreement.component';
 import { RedemptionComponent } from './components/redemption/redemption.component';
 import { SearchMortgageAgreementComponent } from './components/search-mortgage-agreement/search-mortgage-agreement.component';
+import { CreateLabelComponent } from './components/create-label/create-label.component';
+import { EditLabelComponent } from './components/edit-label/edit-label.component';
+import { SearchLabelComponent } from './components/search-label/search-label.component';
 
 const routes: Routes = [
   { path: '', title: "Trang chủ - Giá vàng", component: PriceComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'create-order', title: "Tạo đơn hàng", component: CreateOrderComponent },
-  { path: 'search-order', title: "Tìm kiếm đơn hàng", component: SearchOrderComponent },
+  { path: 'search-order', title: "Tra cứu đơn hàng", component: SearchOrderComponent },
   { path: 'create-mortgage-agreement', title: "Tạo đơn cầm", component: CreateMortgageAgreementComponent},
   { path: 'redemption', title: "Chuộc - đóng lãi", component: RedemptionComponent},
-  { path: 'search-mortgage-agreement', title: "Tìm kiếm đơn cầm", component: SearchMortgageAgreementComponent},
+  { path: 'search-mortgage-agreement', title: "Tra cứu đơn cầm", component: SearchMortgageAgreementComponent},
+  { path: 'create-label', title: "Tạo tem", component: CreateLabelComponent},
+  { path: 'edit-label', title: "Sửa tem", component: EditLabelComponent},
+  { path: 'search-label', title: "Tra cứu sản phẩm", component: SearchLabelComponent},
   { path: 'alerts', component: AlertsComponent },
   { path: 'accordion', component: AccordionComponent },
   { path: 'badges', component: BadgesComponent },

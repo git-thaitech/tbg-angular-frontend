@@ -43,7 +43,6 @@ export class CreateMortgageAgreementComponent implements OnInit {
   itemRealWeight = '';
   itemRows: { itemNameRow: string, goldTypeRow: string, itemRealWeightRow: any }[] = [];
   emptyItemInputError = '';
-  // @ViewChild('itemForm') itemForm!: NgForm;
 
   onSubmitItemForm(form: NgForm) {
     const { 'item-name': itemName, 'gold-type': goldType, 'item-real-weight': itemRealWeight } = form.value;
@@ -60,9 +59,6 @@ export class CreateMortgageAgreementComponent implements OnInit {
 
   addItemToRows() {
     this.emptyItemInputError = '';
-    console.log(this.itemName + '-' + this.itemName.length);
-    console.log(this.goldType + '-' + this.goldType.length);
-    console.log(this.itemRealWeight);
     if (this.itemName === '' || this.goldType === '' || this.itemRealWeight === '') {
       this.emptyItemInputError = "Không được bỏ trống các trường thông tin!";
       return;
@@ -92,5 +88,7 @@ export class CreateMortgageAgreementComponent implements OnInit {
   reload() {
     window.location.reload();
   }
+
+  interestRate!: any;
 
 }

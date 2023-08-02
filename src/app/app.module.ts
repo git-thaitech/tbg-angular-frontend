@@ -57,6 +57,9 @@ import { NumberToWordsPipe } from './pipes/number-to-words.pipe';
 import { GoldWeightFormatDirective } from './directive/gold-weight-format.directive';
 import { NumberToGoldWeightUnitPipe } from './pipes/number-to-gold-weight-unit.pipe';
 import { NumberOnlyFormatDirective } from './directive/number-only-format.directive';
+import { CreateLabelComponent } from './components/create-label/create-label.component';
+import { SearchLabelComponent } from './components/search-label/search-label.component';
+import { EditLabelComponent } from './components/edit-label/edit-label.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +112,10 @@ import { NumberOnlyFormatDirective } from './directive/number-only-format.direct
     MoneyFormatDirective,
     NumberToWordsPipe,
     GoldWeightFormatDirective,
-    NumberOnlyFormatDirective
+    NumberOnlyFormatDirective,
+    CreateLabelComponent,
+    SearchLabelComponent,
+    EditLabelComponent
   ],
   imports: [
     BrowserModule,
