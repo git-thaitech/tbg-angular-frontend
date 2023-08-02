@@ -9,7 +9,7 @@ export class CreateOrderComponent implements OnInit {
 
   numberValue!: string;
   wordValue!: string;
-  isExchangeItem = false;
+  isOldItemExchange = false;
 
   constructor(private elementRef: ElementRef) { }
 
@@ -20,19 +20,60 @@ export class CreateOrderComponent implements OnInit {
     this.elementRef.nativeElement.appendChild(s);
   }
 
-  oldItemRows: { 
-    oldItemType: string, 
-    oldItemExPrice: string, 
-    oldItemBuyPrice: string,
-    isExchangeItem: boolean,
-    itemTotalWeight: number,
-    itemGemWeight: number,
-    itemRealWeight: any }[] = [];
+
+  newItemRows: {
+    code: string,
+    name: string,
+    goldType: string,
+    totalWeight: any,
+    gemWeight: any,
+    realWeight: any
+  }[] = [];
+
+  oldItemGoldType = '';
+  oldItemExchangePrice = '';
+  oldItemBuyPrice = '';
+  oldItemTotalWeight = '';
+  oldItemGemWeight = '';
+
+  oldItemRows: {
+    goldType: string,
+    exchangePrice: string,
+    buyPrice: string,
+    isExchange: boolean,
+    totalWeight: any,
+    gemWeight: any,
+    realWeight: any
+  }[] = [];
 
   changeOldItemFunction() {
-    console.log("how are you");
-    this.isExchangeItem = !this.isExchangeItem;
-    console.log(this.isExchangeItem);
+    this.isOldItemExchange = !this.isOldItemExchange;
+  }
+
+  addOldItemToRows() {
+    if (this.isOldItemExchange) {
+      const row = {
+        goldType: this.oldItemGoldType,
+        exchangePrice: this.oldItemExchangePrice,
+        buyPrice: '',
+        isExchange: this.isOldItemExchange,
+        totalWeight: this.oldItemTotalWeight,
+        gemWeight: this.oldItemGemWeight,
+        realWeight: (parseFloat(this.oldItemTotalWeight) - parseFloat(this.oldItemGemWeight))
+      };
+      this.oldItemRows.push(row);
+    } else {
+      const row = {
+        goldType: this.oldItemGoldType,
+        exchangePrice: '',
+        buyPrice: this.oldItemBuyPrice,
+        isExchange: this.isOldItemExchange,
+        totalWeight: this.oldItemTotalWeight,
+        gemWeight: this.oldItemGemWeight,
+        realWeight: (parseFloat(this.oldItemTotalWeight) - parseFloat(this.oldItemGemWeight))
+      };
+      this.oldItemRows.push(row);
+    }
   }
 
 }

@@ -56,6 +56,7 @@ import { MoneyFormatDirective } from './directive/money-format.directive';
 import { NumberToWordsPipe } from './pipes/number-to-words.pipe';
 import { GoldWeightFormatDirective } from './directive/gold-weight-format.directive';
 import { NumberToGoldWeightUnitPipe } from './pipes/number-to-gold-weight-unit.pipe';
+import { NumberOnlyFormatDirective } from './directive/number-only-format.directive';
 
 @NgModule({
   declarations: [
@@ -107,7 +108,8 @@ import { NumberToGoldWeightUnitPipe } from './pipes/number-to-gold-weight-unit.p
     RedemptionComponent,
     MoneyFormatDirective,
     NumberToWordsPipe,
-    GoldWeightFormatDirective
+    GoldWeightFormatDirective,
+    NumberOnlyFormatDirective
   ],
   imports: [
     BrowserModule,

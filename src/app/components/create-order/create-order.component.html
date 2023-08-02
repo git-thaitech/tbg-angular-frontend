@@ -116,17 +116,17 @@
                                 <div class="col-lg-5 mb-3 row">
                                     <label for="inputText" class="col-sm-4 col-form-label">KLT:</label>
                                     <div class="col-sm-8 ps-0">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" appGoldWeightFormat>
                                     </div>
                                 </div>
                                 <div class="col-lg-7 mb-3 row">
-                                    <label for="gia-mua" class="col-sm-3 col-form-label" *ngIf="!isExchangeItem">Mua:
+                                    <label for="gia-mua" class="col-sm-3 col-form-label" *ngIf="!isOldItemExchange">Mua:
                                     </label>
-                                    <label for="gia-doi" class="col-sm-3 col-form-label" *ngIf="isExchangeItem">Đổi:
+                                    <label for="gia-doi" class="col-sm-3 col-form-label" *ngIf="isOldItemExchange">Đổi:
                                     </label>
                                     <div class="col-sm-7 px-0">
-                                        <input *ngIf="!isExchangeItem" type="text" class="form-control">
-                                        <select *ngIf="isExchangeItem" class="form-select">
+                                        <input *ngIf="!isOldItemExchange" type="text" class="form-control" appNumberOnlyFormat>
+                                        <select *ngIf="isOldItemExchange" class="form-select">
                                             <option value="option1">0 <span class="buy-price-for-exchange">(m.600)</span></option>
                                             <option value="option1">0 <span class="buy-price-for-exchange">(m.600)</span></option>
                                             <option value="option1">120 <span class="buy-price-for-exchange">(m.600)</span></option>
@@ -145,7 +145,7 @@
                                 <div class="col-lg-4 mb-3 row">
                                     <label for="inputText" class="col-sm-4 col-form-label" style="padding-right: 0;">H:</label>
                                     <div class="col-sm-8"> 
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" appGoldWeightFormat>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 ps-5">
@@ -157,30 +157,22 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Loại</th>
-                                    <th width="40%" scope="col">KLV-H=TLV</th>
+                                    <th width="40%" scope="col">KLT - H = KLV</th>
                                     <th scope="col"><i class="ri-exchange-funds-fill"></i> Mua/Đổi</th>
                                     <th scope="col">Xóa</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th><a href="#">#2644</a></th>
-                                    <td>322.3 - 3 = <strong>213</strong></td>
-                                    <td><span class="badge bg-success">ĐỔI</span> 120 (m.600)</td>
-                                    <td><button class="btn btn-outline-dark"><i
-                                        class="bi bi-trash-fill"></i></button></td>
-                                </tr>
-                                <tr>
-                                    <th><a href="#">#2644</a></th>
-                                    <td><span class="badge bg-success">Approved</span></td>
-                                    <td><span class="badge bg-warning">MUA</span> 35000</td>
-                                    <td>35</td>
-                                </tr>
-                                <tr>
-                                    <th><a href="#">#2644</a></th>
-                                    <td><span class="badge bg-success">Approved</span></td>
-                                    <td>Ashleigh Langosh</td>
-                                    <td>45</td>
+                                <tr *ngFor="let item of oldItemRows; let i = index">
+                                    <th>{{ item.goldType }}</th>
+                                    <td>{{ item.totalWeight }} - {{ item.gemWeight }} = <strong>{{ item.realWeight }}</strong></td>
+                                    <td *ngIf="item.isExchange"><span class="badge bg-success">ĐỔI</span> {{ item.exchangePrice }}</td>
+                                    <td *ngIf="!item.isExchange"><span class="badge bg-warning">MUA</span> {{ item.buyPrice }}</td>
+                                    <td>
+                                        <button class="btn btn-outline-dark">
+                                            <i class="bi bi-trash-fill"></i>
+                                        </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
